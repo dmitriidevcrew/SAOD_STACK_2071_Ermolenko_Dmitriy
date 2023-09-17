@@ -7,7 +7,7 @@ document.getElementById('create').addEventListener('submit', async (event) => {
             'Content-Type': 'application/json'
         }
     };
-    await fetch("http://localhost:8080/create/" + capacity, options);
+    await fetch("http://localhost:8080/stack/create/" + capacity, options);
 });
 
 async function renderStack() {
@@ -18,7 +18,7 @@ async function renderStack() {
             'Content-Type': 'application/json'
         }
     };
-    let response = await fetch("http://localhost:8080/stack", options);
+    let response = await fetch("http://localhost:8080/stack/stack", options);
     let json = await response.json();
     json.reverse().forEach(x => {
         html += `<tr class="table-primary" id="${x}">${x}</tr>`;
@@ -37,8 +37,8 @@ document.getElementById('pushForm').addEventListener('submit', async (event) => 
         },
         body: JSON.stringify(item)
     };
-    let responce = await fetch("http://localhost:8080/push", options);
-    let json = await responce.json();
+    let response = await fetch("http://localhost:8080/stack/push", options);
+    let json = await response.json();
     if (json === "CONFLICT") document.getElementById('itemOutput').innerHTML = `<label id="itemOutput">Push Exception</label>`;
     await renderStack();
 });
@@ -52,7 +52,7 @@ document.getElementById('popForm').addEventListener('submit', async (event) => {
             'Content-Type': 'application/json'
         }
     };
-    let response = await fetch("http://localhost:8080/pop", options);
+    let response = await fetch("http://localhost:8080/stack/pop", options);
     if (response.status === 409) html = `<label id="itemOutput">Empty Stack Exception</label>`;
     else {
         let json = await response.json();
@@ -71,7 +71,7 @@ document.getElementById('peekForm').addEventListener('submit', async (event) => 
             'Content-Type': 'application/json'
         }
     };
-    let response = await fetch("http://localhost:8080/peek", options);
+    let response = await fetch("http://localhost:8080/stack/peek", options);
     if (response.status === 409) html = `<label id="itemOutput">Empty Stack Exception</label>`;
     else {
         let json = await response.json();

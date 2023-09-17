@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saod Stack 2017 Ermolenko Dmitrii</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid align-items-start">
+    <div class="row">
+        <label for="stackRange" class="form-label ms-4 mt-3 ">Array capacity</label>
+        <div class="col-2 ms-4">
+            <input type="range" class="form-range" min="0" max="10" step="1"
+                   oninput="capacity.value=stackRange.value" id="stackRange">
+            <form id="create">
+                <input type="submit" class="fs-8 pe-4 btn btn-secondary" value="Create Stack">
+            </form>
+            <div class="input-group mt-2">
+                <input id="inputText" type="text" class="form-control" placeholder="Item">
+                <button form="pushForm" id="push" type="submit" class="btn btn-outline-secondary">Push</button>
+            </div>
+            <div class="btn-group mt-2" role="group">
+                <button form="popForm" id="pop" type="submit" class="btn btn-outline-secondary">Pop</button>
+                <button form="peekForm" id="peek" type="submit" class="btn btn-outline-secondary">Peek</button>
+            </div>
+            <div class="mt-2">
+                <label>Output:</label>
+                <label id="itemOutput"></label>
+            </div>
+            <form id="pushForm"></form>
+            <form id="popForm"></form>
+            <form id="peekForm"></form>
+        </div>
+        <div class="col-1">
+            <output id="capacity" name="capacity" for="stackRange">0</output>
+        </div>
+        <div class="col-2">
+            <table class="table">
+                <thead id="stackView">
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/stack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+</body>
+</html>

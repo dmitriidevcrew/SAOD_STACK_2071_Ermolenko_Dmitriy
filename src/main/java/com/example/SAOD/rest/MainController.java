@@ -10,4 +10,14 @@ public class MainController {
     public String showMainPage() {
         return "index";
     }
+
+    @GetMapping("/stack")
+    public String showStackPage() {
+        return "stack";
+    }
+
+    @GetMapping("/queue")
+    public String showQueuePage() {
+        return "queue";
+    }
 }
