@@ -1,7 +1,5 @@
 package com.example.SAOD.Queue;
 
-import java.util.List;
-
 public interface Queue<T> {
     void enqueue(T item) throws Exception;
 
@@ -9,5 +7,5 @@ public interface Queue<T> {
 
     T peek() throws Exception;
 
-    List<String> toArray();
+    T[] toArray();
 }

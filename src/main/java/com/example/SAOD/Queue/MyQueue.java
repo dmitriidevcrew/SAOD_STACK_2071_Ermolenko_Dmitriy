@@ -2,10 +2,6 @@ package com.example.SAOD.Queue;
 
 import lombok.Getter;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
 public class MyQueue<T> implements Queue<T> {
     private final int capacity;
     private int count;
@@ -55,7 +51,7 @@ public class MyQueue<T> implements Queue<T> {
     }
 
     @Override
-    public List<String> toArray() {
-        return Arrays.stream(array).filter(Objects::nonNull).map(Object::toString).toList();
+    public T[] toArray() {
+        return array;
     }
 }

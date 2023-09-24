@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @Component
 public class MyQueueService {
@@ -21,7 +23,7 @@ public class MyQueueService {
     }
 
     public List<String> toArray() {
-        return queue.toArray();
+        return Arrays.stream(queue.toArray()).filter(Objects::nonNull).map(Object::toString).toList();
     }
 
     public ResponseEntity<String> enqueue(String item) {
