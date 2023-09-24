@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/stack")
 public class MyStackController {
 
     private final MyStackService stackService;
