@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @Component
 public class MyStackService {
@@ -22,7 +24,7 @@ public class MyStackService {
     }
 
     public List<String> getStack() {
-        return stack.getValue();
+        return Arrays.stream(stack.getValue()).filter(Objects::nonNull).map(Object::toString).toList();
     }
 
     public HttpStatus push(String item) {

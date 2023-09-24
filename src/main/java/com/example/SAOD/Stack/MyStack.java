@@ -1,15 +1,11 @@
 package com.example.SAOD.Stack;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
 public class MyStack<T> implements Stack<T> {
     private final T[] array;
     private int count = 0;
 
-    public List<String> getValue() {
-        return Arrays.stream(array).filter(Objects::nonNull).map(Object::toString).toList();
+    public T[] getValue() {
+        return array;
     }
 
     @SuppressWarnings("unchecked")
